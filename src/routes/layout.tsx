@@ -15,21 +15,23 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <div class="container mx-auto max-w-5xl flex flex-col min-h-screen px-2">
-      <header>
-        <div class="fle flex-wrap items-center justfy-between w-full mx-auto p-2 text-amber-600 text-3xl">
-          <a href="/">Simple Blog</a>
+      <header class=" rounded-lg">
+        <div class="flex flex-wrap items-center justfy-between w-full mx-auto p-3 text-amber-600 text-3xl">
+          <a class="-skew-y-3 outline outline-offset-2 outline-lime-300 px-5 rounded-lg"  href="/">Simple Blog</a>
         </div>
       </header>
       <main class="m-2 px-4">
         <Slot />
       </main>
-      <footer class="flex bg-yellow-100 text-amber-800">
-        <span class="flex text-amber-800">
+      <footer class="fixed bottom-2 w-3/4 grid grid-cols-5 rounded-lg py-1 bg-yellow-100 text-amber-800">
+        <span class="col-span-3 justify-self-start mx-3 text-amber-800">
           (c) 2024 <a href="/">Simple Blog</a>
         </span>
-        <span class="text-amber-600">
-          <a href="/about">About</a>
-        </span>
+        <div class="col-span-2 justify-self-end mx-2">
+          <span class="text-amber-600">
+            <a href="/about">About</a>
+          </span>
+        </div>
       </footer>
     </div>
   );

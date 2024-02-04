@@ -8,7 +8,7 @@ import matter from "gray-matter";
 
 export default component$(() => {
   const blogPath = "src/routes/blogs";
-  const blogEntries = [];
+  const blogEntries = {};
   const blogDirs = fs.readdirSync(path.join(blogPath));
 
   console.log('Blog Dirs:', blogDirs);
@@ -16,9 +16,8 @@ export default component$(() => {
     const fileContents = fs.readFileSync(path.join(blogPath, blog, "index.mdx"));
     const {data, _} = matter(fileContents);
     const title = data == undefined || data.title == undefined ? blog : data.title;
-    blogEntries.push(
-      <li><a href={"/blogs/" + blog}>{title}</a></li>,
-    );
+    const created_at = data == undefined || data.created_at == undefined ? Date.now() : data.created_at;
+    blogEntries[Date.parse(created_at)] = <li><a href={"/blogs/" + blog}>{title}</a></li>;
   });
 
   return (
@@ -26,7 +25,13 @@ export default component$(() => {
       <div>
         <div>Blogposts..</div>
         <ul>
-          {blogEntries}
+          {
+            Object.keys(blogEntries).sort().reverse()
+              .reduce((acc, c) => {
+                acc.push(blogEntries[c]);
+                return acc;
+              }, [])
+          }
         </ul>
       </div>
     </div>
