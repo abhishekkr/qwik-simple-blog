@@ -1,0 +1,17 @@
+/**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+main ul {
+  list-style-type: circle;
+  margin-left: 1.5rem;
+}
+
+main li {
+  margin-top: 0.5rem;
+}
