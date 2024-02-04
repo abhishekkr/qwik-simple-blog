@@ -1,0 +1,39 @@
+---
+title: Creating a Blog with QwikJS
+description: This qwikjs blog contains steps to create a qwikjs blog
+created_at:  05/Feb/2024 02:40
+og:
+  - title: Create a Blog with QwikJS framework
+    description: true
+  - image: https://commons.wikimedia.org/wiki/File:Noun_Project_Blog_Icon_646668.svg
+    image:alt: A quill and ink bottle, as it's a web.log
+---
+
+* Create a new QwikJS project, give any name like `simple-blog` & choose an empty project to begin with.
+
+```
+$ npm create qwik@latest
+$ cd simple-blog
+```
+
+* Utilizing MDX, create a dir `mkdir src/routes/blogs/first-blog` & add some blog content as Markdown to a file `index.mdx` at the path.. like
+
+```
+---
+title: First Blog
+---
+
+This is the first blog.
+
+* One
+* Two
+* Three
+```
+
+* `npm start` & visit [/blogs/blog-with-qwik/](http://localhost:5173/blogs/first-blog/).
+
+* `npm i --save gray-matter` to be able to fetch Title from parsed MDX when making Bloglist
+
+* Add tailwind support `npm run qwik add tailwind`.
+
+---
