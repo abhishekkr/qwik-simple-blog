@@ -37,7 +37,19 @@ The preview command will create a production build of the client modules, a prod
 npm run preview # or `yarn preview`
 ```
 
+## Static Site Generator (Node.js)
+
+```shell
+npm run build.server
+```
+
+---
+
 ## Production
+
+* Build Static Site & deploy it from `dist`. Update `origin` value in `./adapters/static/vite.config.ts` to your blog's URL.
+
+**OR**
 
 The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
 
